@@ -1,0 +1,47 @@
+/* HERO TWEAKS */
+.hero { height: 100vh; display: flex; align-items: center; padding: 0 8%; position: relative; }
+.scroll-indicator { 
+    position: absolute; bottom: 40px; left: 8%; 
+    text-decoration: none; color: var(--primary); font-weight: 800; font-size: 14px;
+    animation: bounce 2s infinite;
+}
+
+/* REVEAL ANIMATION LOGIC */
+.reveal-section { 
+    opacity: 0; transform: translateY(50px); 
+    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1); 
+    padding: 100px 8%;
+}
+.reveal-section.active { opacity: 1; transform: translateY(0); }
+
+/* VISION SECTION */
+.vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.vision-text h2 { font-size: 50px; line-height: 1.1; margin: 20px 0; }
+.vision-image img { width: 100%; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+/* STATS SECTION */
+.stats-section { 
+    background: #111; color: white; display: flex; 
+    justify-content: space-around; text-align: center;
+}
+.stat-box h3 { font-size: 60px; color: var(--primary-light); }
+.stat-box p { opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
+
+/* ECOSYSTEM BENTO PREVIEW */
+.ecosystem { text-align: center; }
+.ecosystem h2 { font-size: 45px; margin-bottom: 50px; }
+.bento-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.bento-item { 
+    background: #f4f7f4; padding: 60px; border-radius: 40px; text-align: left;
+    transition: 0.4s;
+}
+.bento-item.dark { background: var(--primary); color: white; }
+.bento-item.dark a { color: white; }
+.bento-item h4 { font-size: 28px; margin-bottom: 10px; }
+.bento-item:hover { transform: scale(1.02); }
+
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+@media (max-width: 768px) {
+    .vision-grid, .bento-preview, .stats-section { grid-template-columns: 1fr; flex-direction: column; gap: 40px; }
+}

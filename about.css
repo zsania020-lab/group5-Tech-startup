@@ -1,0 +1,151 @@
+/* 1. THE FOUNDATION */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* A soft, dreamy gradient background */
+    background: linear-gradient(135deg, #f0f9f1 0%, #e0eafc 100%);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #445;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* 2. THE HEADER (Glassmorphism effect) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    /* This makes the header look like frosted glass */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo h1 i {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.green { color: #43a047; text-shadow: 0 0 10px rgba(67, 160, 71, 0.2); }
+.byte { color: #100f0f; }
+
+.page-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #889;
+    font-weight: 400;
+}
+/* Navigation Container - Using Flexbox to align list items in a row */
+.nav-bar ul {
+    display: flex;
+    list-style: none; /* Removes the bullet points */
+    gap: 35px;        /* Equal spacing between each link */
+    margin: 0;
+    padding: 0;
+}
+
+/* Individual Link Styling */
+.nav-bar a {
+    text-decoration: none;  /* Removes the default underline */
+    color: #1a1a1a;        /* Sleek dark grey/black */
+    font-size: 0.85rem;     /* Slightly smaller for a premium look */
+    font-weight: 700;       /* Bold text as seen in your screenshot */
+    letter-spacing: 1.5px;  /* Spaced out letters for a 'tech' feel */
+    text-transform: uppercase; /* Ensures all caps */
+    transition: all 0.3s ease; /* Smooth color transition */
+    position: relative;     /* Required for the underline effect below */
+}
+
+/* Change color when hovering or when on the active page */
+.nav-bar a:hover, 
+.nav-bar a.active {
+    color: #43a047; /* Green Byte Green */
+}
+
+/* THE DREAMY UNDERLINE EFFECT
+   This creates a small green bar that grows from the center 
+   when you hover over a link.
+*/
+.nav-bar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #43a047;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.nav-bar a:hover::after,
+.nav-bar a.active::after {
+    width: 100%; /* Grows to full width on hover or active */
+}
+
+/* 3. MAIN CONTENT CONTAINER */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.about-section {
+    max-width: 800px;
+    background: white;
+    padding: 60px;
+    border-radius: 40px; /* Extra rounded for a soft feel */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+    transition: transform 0.3s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+}
+
+.head1 {
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+/* Subtle accent line under the heading */
+.head1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #a5d6a7;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #556;
+}
+
+/* 4. THE FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.85rem;
+    color: #99a;
+}

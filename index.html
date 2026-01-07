@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Green Byte | Digital Ecosystems</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">green<span>byte</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="devices.html">Devices</a>
+            <a href="services.html">Services</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Modern Systems.<br><span>Pure Impact.</span></h1>
+            <p>Smart hardware and sustainable software engineered for 2026.</p>
+            <a href="#vision" class="scroll-indicator">Explore the Ecosystem ↓</a>
+        </div>
+        <div class="display">
+            <img src="https://images.unsplash.com/photo-1607706189992-eae578626c86?w=600" class="img1">
+            <img src="https://images.unsplash.com/photo-1524289286702-f07229da36f5?w=600" class="img2">
+        </div>
+    </section>
+
+    <section id="vision" class="reveal-section">
+        <div class="container">
+            <div class="vision-grid">
+                <div class="vision-text">
+                    <span class="tag">01. PHILOSOPHY</span>
+                    <h2>Engineered for the <br>Next Decade.</h2>
+                    <p>We don't just build apps or sell gadgets. We create a carbon-neutral loop where your devices and software work in perfect harmony.</p>
+                </div>
+                <div class="vision-image">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Global Network">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section reveal-section">
+        <div class="stat-box">
+            <h3>90%</h3>
+            <p>Recycled Materials</p>
+        </div>
+        <div class="stat-box">
+            <h3>40%</h3>
+            <p>Energy Saved</p>
+        </div>
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <p>AI Monitoring</p>
+        </div>
+    </section>
+
+    <section class="ecosystem reveal-section">
+        <h2>One Ecosystem. <br>Infinite Possibilities.</h2>
+        
+        <div class="bento-preview">
+            <div class="bento-item">
+                <h4>Hardware</h4>
+                <p>Premium Neural Buds & Laptops.</p>
+                <a href="devices.html">View Store →</a>
+            </div>
+            <div class="bento-item dark">
+                <h4>Software</h4>
+                <p>Energy-efficient AI & Cloud.</p>
+                <a href="services.html">Explore Tech →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>© 2026 Green Byte Digital Ecosystems.</footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700;800&display=swap');
+
+:root {
+    --primary: #2e7d32;
+    --accent: #1a1a1a;
+    --glass: rgba(255, 255, 255, 0.6);
+    --border: rgba(255, 255, 255, 0.4);
+    --shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #f0f4f0;
+    color: var(--accent);
+    overflow-x: hidden;
+}
+
+/* --- ANIMATED MESH BACKGROUND --- */
+.mesh-gradient {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 0% 0%, #e8f5e9 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, #e3f2fd 0%, transparent 50%);
+    z-index: -1;
+}
+/* ================= NAVBAR ================= */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    width: 190%; /* Ensures it spans full width */
+}
+
+/* container */
+.nav-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 80px; /* Fixed height helps keep things on one line */
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This forces Logo Left and Nav Right */
+    flex-wrap: nowrap; /* Prevents the nav from dropping to a second line */
+}
+
+/* -------- LOGO LEFT -------- */
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    margin: 0;
+    white-space: nowrap; /* Keeps "Green Byte" on one line */
+}
+.green {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.byte {
+    color: var(--black);
+    font-weight: 300; /* As per your original style */
+}
+
+/* -------- NAV RIGHT -------- */
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 40px; 
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 10px 0;
+    white-space: nowrap; /* Prevents menu items like "CONTACT" from breaking */
+}
+
+/* Underline Animation (matching your video) */
+.nav-bar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Spans full width of text, not just a small bar */
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-bar a:hover::after,
+.nav-bar a.active::after {
+    transform: scaleX(1);
+}
+
+/* --- HERO --- */
+.hero-section {
+    padding: 80px 8% 60px; text-align: center;
+}
+
+.badge {
+    display: inline-block; padding: 6px 16px; border-radius: 50px;
+    background: white; border: 1px solid #ddd; font-size: 10px;
+    font-weight: 800; letter-spacing: 2px; margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.hero-section h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1;
+    letter-spacing: -3px; font-weight: 800;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #2e7d32, #43a047);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+.hero-section p { font-size: 1.1rem; color: #666; margin-top: 20px; }
+
+/* --- BENTO GRID --- */
+.bento-container {
+    max-width: 1200px; margin: 0 auto 100px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(280px, auto); gap: 30px; padding: 0 40px;
+}
+
+.glass-card {
+    background: var(--glass); border: 1px solid var(--border);
+    backdrop-filter: blur(15px); border-radius: 40px;
+    padding: 40px; display: flex; flex-direction: column;
+    justify-content: space-between; transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.glass-card.wide { grid-column: span 2; }
+.glass-card.tall { grid-row: span 2; }
+
+/* --- CARD INTERNALS --- */
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+
+.icon-box {
+    width: 60px; height: 60px; border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.price-tag {
+    font-size: 11px; font-weight: 800; color: var(--primary);
+    background: rgba(46, 125, 50, 0.1); padding: 6px 14px; border-radius: 50px;
+}
+
+.card-info h3 { font-size: 1.5rem; letter-spacing: -1px; margin-bottom: 10px; }
+.card-info p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+
+.cta-link {
+    text-decoration: none; color: var(--primary); font-weight: 800;
+    font-size: 12px; letter-spacing: 1px; transition: 0.3s;
+    display: inline-block;
+}
+
+.cta-link span { transition: 0.3s; display: inline-block; }
+.cta-link:hover span { transform: translateX(5px); }
+
+/* --- HOVER MAGIC --- */
+.glass-card:hover {
+    transform: translateY(-10px); background: white;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.08); border-color: var(--primary);
+}
+
+/* --- FOOTER --- */
+.minimal-footer {
+    padding: 60px; text-align: center; border-top: 1px solid #ddd;
+    font-size: 10px; letter-spacing: 3px; color: #999;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .bento-container { grid-template-columns: 1fr 1fr; }
+    .glass-card.wide { grid-column: span 1; }
+}
+
+@media (max-width: 650px) {
+    .bento-container { grid-template-columns: 1fr; }
+}
